@@ -4,6 +4,13 @@ export interface IType {
     };
 }
 
+export interface IPokemonType {
+    pokemon: {
+        name: string,
+        url: string
+    }
+}
+
 export interface IEvolution {
     id: number;
     name: string;

@@ -1,6 +1,6 @@
 import { z } from 'zod';
 import { ApiError } from '../../../errors/ApiError';
-import { IPaginateBase } from '../../../interfaces/IPagenates';
+import { IPaginateBase } from '../../../interfaces/IPaginates';
 
 const listSchema = z.object({
     page: z.string().transform(Number).default('1').optional(),

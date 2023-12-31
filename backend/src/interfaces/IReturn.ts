@@ -15,3 +15,8 @@ export interface IListPokemonAPI {
     count: number,
     pokemons: IListPokemon[]
 }
+
+export interface IListPokemonType {
+    count: number,
+    pokemons: IList[]
+}

@@ -8,4 +8,6 @@ export interface IPaginateBase {
 export interface IPagePokemon {
     limit: number;
     offset: number;
+    name: string | null | undefined;
+    type: string | null | undefined;
 }
