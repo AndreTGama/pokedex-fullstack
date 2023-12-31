@@ -65,7 +65,6 @@ export class Pokemon {
     return newList;
   }
 
-  // TODO rever essa function 
   static async pokemonList({limit = 25, offset = 0, name, type}: IPagePokemon): Promise<IListPokemonAPI> {
     
     if(type){
@@ -101,7 +100,6 @@ export class Pokemon {
   static async getPokemonById(id: number) : Promise<IListPokemon>  {
     try {
       const { data } = await apiPoke.get(`/pokemon/${id}`);
-
       if (!data)
         throw new ApiError('Erro ao Pokémon');
 
@@ -154,7 +152,7 @@ export class Pokemon {
       const { data } = await apiPoke.get(`/type/${type}`);
   
       if (!data.pokemon)
-        throw new ApiError('Tipo não encontrado');
+        throw new ApiError('Tipo não encontrado', 404);
   
       for (const item of data.pokemon) {
         if (!name || (name && name === item.pokemon.name)) {
@@ -166,7 +164,7 @@ export class Pokemon {
       }
   
       if (list.length === 0)
-        throw new ApiError('Pokémon não encontrado');
+        throw new ApiError('Pokémon não encontrado', 404);
   
       const count = list.length;
       const startIndex = offset;

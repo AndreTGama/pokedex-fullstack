@@ -3,6 +3,7 @@ import cors from 'cors';
 import 'reflect-metadata';
 import 'express-async-errors';
 
+import './container';
 import { routes } from './routes';
 import { IReturnApi } from './interfaces/IReturn';
 import { ApiError } from './errors/ApiError';

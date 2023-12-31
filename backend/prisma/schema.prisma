@@ -13,20 +13,39 @@ datasource db {
 model Teams {
   @@map("teams")
 
-  id                  String            @id @default(uuid())
+  id                  String             @id @default(uuid())
   name                String
+  created_at          DateTime           @default(now())
+  updated_at          DateTime           @updatedAt()
+  deleted_at          DateTime?
+  
   teamsHasPokemons    TeamsHasPokemons[] @relation(name: "teams_pokemon")
-  created_at          DateTime          @default(now())
-  updated_at          DateTime          @updatedAt()
 }
 
 model TeamsHasPokemons {
   @@map("teams_has_pokemons")
 
-  id          String    @id @default(uuid())
+  id          String      @id @default(uuid())
   teamsId     String    
-  pokemonId   Int
-  created_at  DateTime  @default(now())
-  updated_at  DateTime  @updatedAt()
-  Teams       Teams     @relation(name: "teams_pokemon", fields: [teamsId], references: [id], onDelete: Cascade)
+  pokemonId   String      
+  created_at  DateTime    @default(now())
+  updated_at  DateTime    @updatedAt()
+  deleted_at  DateTime?
+
+  teams       Teams       @relation(name: "teams_pokemon", fields: [teamsId], references: [id], onDelete: Cascade)
+  Pokemon     Pokemons    @relation(name: "pokemon_teams", fields: [pokemonId], references: [id], onDelete: Cascade)
+}
+
+model Pokemons {
+  @@map("pokemons")
+
+  id          String                 @id @default(uuid())
+  name        String    
+  img         String
+  id_pokedex  Int
+  created_at  DateTime               @default(now())
+  updated_at  DateTime               @updatedAt()
+  deleted_at  DateTime?
+
+  teamsHasPokemons TeamsHasPokemons[] @relation(name: "pokemon_teams")
 }

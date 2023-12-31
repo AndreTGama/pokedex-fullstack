@@ -8,6 +8,6 @@ routes.get('/', (req, res) => {
     return res.send("Running");
 });
 
-routes.use('/users', teamsRouter);
+routes.use('/teams', teamsRouter);
 
 routes.use('/pokemons', porkemonsRouter);
