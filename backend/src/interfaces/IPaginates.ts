@@ -11,3 +11,7 @@ export interface IPagePokemon {
     name: string | null | undefined;
     type: string | null | undefined;
 }
+
+export interface IIdPokemon {
+    idPokemon: number;
+}

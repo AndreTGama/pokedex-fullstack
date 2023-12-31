@@ -38,6 +38,13 @@ export class Pokemon {
     return evolutions;
   }
 
+  private static async getDescription(url: string): Promise<string>{
+    const speciesResponse = await axios.get(url);
+    const speciesData = speciesResponse.data;
+    
+    return speciesData.flavor_text_entries[0].flavor_text ?? 'Pokémon sem descrição';
+  }
+
   private static async moreInfo(list: IList[]): Promise<IListPokemon[]> {
     const newList: IListPokemon[] = [];
 
@@ -58,46 +65,66 @@ export class Pokemon {
     return newList;
   }
 
-  static async pokemonList({ limit = 25, offset = 0, name, type }: IPagePokemon): Promise<IListPokemonAPI> {
-    const getPokemonListDetails = async (results: any[]) => {
-      const list = await Pokemon.moreInfo(results);
+  // TODO rever essa function 
+  static async pokemonList({limit = 25, offset = 0, name, type}: IPagePokemon): Promise<IListPokemonAPI> {
+    
+    if(type){
+      const {count, pokemons} = await Pokemon.pokemonByType({type, limit, offset, name});
+      const list = await Pokemon.moreInfo(pokemons);
       return {
-        count: results.length,
-        pokemons: list,
-      };
-    };
-  
-    if (type) {
-      const { pokemons } = await Pokemon.pokemonByType({ type, limit, offset, name });
-      return getPokemonListDetails(pokemons);
-    }
-  
-    if (name) {
+        count,
+        pokemons: list
+      }
+    } else if(name) {
       const pokemon = await Pokemon.pokemonByName(name);
+
       return {
         count: 1,
-        pokemons: [pokemon],
+        pokemons: [pokemon]
       };
     }
-  
+
     const { data } = await apiPoke.get(`/pokemon?limit=${limit}&offset=${offset}`);
-  
+
     if (!data.results) throw new ApiError('Erro ao encontrar lista dos pokémons');
-  
+
     const results = data.results;
-    return getPokemonListDetails(results);
+
+    const list = await Pokemon.moreInfo(results);
+
+    return {
+      count: data.count,
+      pokemons: list
+    };
   }
 
-  static async getPokemon(id: number) /*: Promise<IListPokemon>*/  {
-    const { data } = await apiPoke.get(`/pokemon/${id}`);
-    console.log(data);
-    // if (!data.results) throw new ApiError('Erro ao encontrar lista dos pokémons');
+  static async getPokemonById(id: number) : Promise<IListPokemon>  {
+    try {
+      const { data } = await apiPoke.get(`/pokemon/${id}`);
 
-    // const results = data.results;
+      if (!data)
+        throw new ApiError('Erro ao Pokémon');
 
-    // const list = await Pokemon.moreInfo(results);
+      const evolutions = await Pokemon.getEvolution(data.species.url);
+      const description = await Pokemon.getDescription(data.species.url);
+      
+      const pokemon = { 
+        id: data.id,
+        name: data.name,
+        img: data.sprites.front_default,
+        evolutions: evolutions,
+        types: data.types.map((type: IType) => type.type.name),
+        weight: data.weight,
+        height: data.height,
+        description: description
+      };
 
-    // return list;
+      return pokemon;
+      
+    } catch (error) {
+      throw new ApiError('Pokémon não encontrado', 404);
+    }
+    
   }
 
   static async pokemonByName(name: string): Promise<IListPokemon> {
@@ -105,7 +132,7 @@ export class Pokemon {
       const { data } = await apiPoke.get(`/pokemon/${name}`);
   
       if (!data)
-        throw new ApiError('Pokémon não encontrado');
+        throw new ApiError('Pokémon não encontrado', 404);
     
       return {
         id: data.id,

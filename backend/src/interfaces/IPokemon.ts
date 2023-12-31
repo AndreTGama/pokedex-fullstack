@@ -32,4 +32,5 @@ export interface IListPokemon {
     types: IType[],
     weight: number,
     height: number,
+    description?: string,
 }
