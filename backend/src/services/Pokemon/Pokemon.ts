@@ -142,7 +142,7 @@ export class Pokemon {
       }
       
     } catch (error) {
-      throw error; 
+      throw new ApiError('Pokémon não encontrado', 404);
     }
   }
 
@@ -173,7 +173,7 @@ export class Pokemon {
   
       return {count, pokemons};
     } catch (error) {
-      throw error;
+      throw new ApiError('Erro ao encontrar Pokémon', 404);
     }
   }
 }

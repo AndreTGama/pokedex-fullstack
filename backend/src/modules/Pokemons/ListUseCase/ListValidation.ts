@@ -6,7 +6,7 @@ const listSchema = z.object({
     page: z.string().transform(Number).default('1').optional(),
     take: z.string().transform(Number)
       .refine(value => Number.isInteger(value) && value >= 1 && value <= 25, {
-        message: 'The field Take must be an integer between 1 and 25'
+        message: 'Limite da página deve ser entre 1 e 25'
       })
     .optional(),
     type: z.string().optional().nullable(),

@@ -15,7 +15,7 @@ export class ListController {
 
         return res.returnApi({
             data: data,
-            message: "Lista com os pokémons",
+            message: 'Lista com os pokémons',
             status: 200
         });
     }

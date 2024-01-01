@@ -20,3 +20,10 @@ export interface IListPokemonType {
     count: number,
     pokemons: IList[]
 }
+
+export interface IResponse {
+    account: {
+        name: string;
+    };
+    token: string;
+}

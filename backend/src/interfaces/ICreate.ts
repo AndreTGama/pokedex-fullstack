@@ -1,4 +1,9 @@
-export interface ICreateTeams {
+export interface ICreateTeam {
+    id: string;
+    pokemon: number;
+}
+
+export interface ICreateUser {
     name: string;
-    pokemons: number[];
+    password: string;
 }

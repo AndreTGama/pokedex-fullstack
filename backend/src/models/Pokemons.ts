@@ -1,4 +1,4 @@
-import { ITeams } from './Teams';
+import { IUsers } from './Users';
 
 export interface IPokemons {
     id: string;
@@ -6,5 +6,5 @@ export interface IPokemons {
     img: string;
     created_at?: Date;
     updated_at?: Date;
-    Teams?: ITeams[];
+    Users?: IUsers[];
 }
