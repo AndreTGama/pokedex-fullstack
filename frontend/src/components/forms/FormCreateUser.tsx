@@ -1,5 +1,5 @@
 import { FormEvent } from 'react';
-import { UseRegisterUsers } from '../../hooks/useRegisterUsers';
+import { UseContextUsers } from '../../hooks/useContextUsers';
 
 export default function formCreateUser() {
     const {
@@ -9,8 +9,8 @@ export default function formCreateUser() {
         setUsername,
         password,
         setPassword,
-        handleLogin
-    } = UseRegisterUsers();
+        handleRegisterUser
+    } = UseContextUsers();
 
     const handleCreateAccountClick = () => {
         setShowLoginForm(true);
@@ -18,7 +18,7 @@ export default function formCreateUser() {
 
     const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        handleLogin({
+        handleRegisterUser({
             name: username,
             password: password
         });
@@ -45,8 +45,8 @@ export default function formCreateUser() {
                         id="username"
                         type="text"
                         placeholder="Username"
-                        value={username}
                         required
+                        value={username}
                         onChange={(e) => setUsername(e.target.value)}
                     />
                 </div>
@@ -59,8 +59,8 @@ export default function formCreateUser() {
                         id="password"
                         type="password"
                         placeholder="******************"
-                        value={password}
                         required
+                        value={password}
                         onChange={(e) => setPassword(e.target.value)}
                     />
                 </div>

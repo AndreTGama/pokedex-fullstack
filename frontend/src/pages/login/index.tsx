@@ -4,7 +4,7 @@ import pokebal from '../../assets/img/pokeball.webp';
 import square from '../../assets/img/square.webp';
 import FormLogin from '../../components/forms/FormLogin';
 import FormCreateUser from '../../components/forms/FormCreateUser';
-import { ContextsProvider } from '../../hooks/useRegisterUsers';
+import { ContextsProvider } from '../../hooks/useContextUsers';
 
 export default function Index() {
     return (

@@ -1,0 +1,69 @@
+$color-mapping: (
+    normal: #a8a878,
+    fire: #f08030,
+    water: #6890f0,
+    electric: #f8d030,
+    grass: #78c850,
+    ice: #98d8d8,
+    fighting: #c03028,
+    poison: #a040a0,
+    ground: #e0c068,
+    flying: #a890f0,
+    psychic: #f85888,
+    bug: #a8b820,
+    rock: #b8a038,
+    ghost: #705898,
+    dark: #705848,
+    dragon: #7038f8,
+    steel: #b8b8d0,
+    fairy: #ee99ac,
+);
+
+$gradient-mapping: (
+  normal: #A8A878,
+  fire: linear-gradient(45deg, #F08030, #FFA07A),
+  water: linear-gradient(45deg, #6890F0, #ADD8E6),
+  electric: linear-gradient(45deg, #F8D030, #FFECB3),
+  grass: linear-gradient(45deg, #78C850, #6ffd5c),
+  ice: linear-gradient(45deg, #98D8D8, #B2EBF2),
+  fighting: linear-gradient(45deg, #C03028, #D68E80),
+  poison: linear-gradient(45deg, #A040A0, #C183C1),
+  ground: linear-gradient(45deg, #E0C068, #D2B48C),
+  flying: linear-gradient(45deg, #A890F0, #C2B5E8),
+  psychic: linear-gradient(45deg, #F85888, #FFB6C1),
+  bug: linear-gradient(45deg, #A8B820, #C3D21F),
+  rock: linear-gradient(45deg, #B8A038, #D2B48C),
+  ghost: linear-gradient(45deg, #705898, #A292BC),
+  dark: linear-gradient(45deg, #705848, #A2928D),
+  dragon: linear-gradient(45deg, #7038F8, #8C94E3),
+  steel: linear-gradient(45deg, #B8B8D0, #D1D1E0),
+  fairy: linear-gradient(45deg, #EE99AC, #FFD1DC),
+);
+
+@each $type, $color in $color-mapping {
+    .type-#{$type} {
+        background-color: $color;
+        color: #efefef;
+        padding: 2px;
+        border-radius: 35px;
+        font-size: 0.8rem;
+        width: 55px;
+        display: inline;
+        display: flex;
+        justify-content: center;
+        opacity: 0.8;
+        margin-bottom: 5px;
+    }
+}
+
+@each $type, $color in $gradient-mapping {
+    .type-bg-#{$type} {
+        background: $color !important;
+    }
+}
+
+.cards {
+    padding: 1rem;
+    height: 100%;
+    cursor: pointer;
+}

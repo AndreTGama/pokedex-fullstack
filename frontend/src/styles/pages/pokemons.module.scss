@@ -1,0 +1,18 @@
+.formSearch{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 5% 10%;
+
+    form, select {
+        width: 50%;
+        margin: 5px;
+    }
+    @media only screen and (max-width: 600px) {
+        flex-direction: column;
+        form, select {
+            width: 100%;
+            margin: 5px;
+        }
+    }
+}
