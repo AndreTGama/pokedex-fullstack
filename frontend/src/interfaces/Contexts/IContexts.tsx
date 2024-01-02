@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 import { ICreateUser } from '../Users/IUsers';
-import { IGetPokemons } from '../Pokemons/IGetPokemons';
+import { IGetPokemons, IPokemon } from '../Pokemons/IGetPokemons';
 
 export interface ContextProps {
     showLoginForm: boolean;
@@ -27,9 +27,12 @@ export interface ContextPropsPokemons {
     page: number;
     setPage: React.Dispatch<React.SetStateAction<number>>;
     handleGetPokemons: (values: IGetPokemons) => Promise<void>;
-    pokemons: string[];
+    pokemons: IPokemon[];
     total: number;
     setTotal: React.Dispatch<React.SetStateAction<number>>;
+    getAllPokemonNames: () => Promise<void>;
+    loading: boolean; 
+    setLoading: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export interface ContextsProviderProps {

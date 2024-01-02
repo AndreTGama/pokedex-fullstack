@@ -59,11 +59,44 @@ $gradient-mapping: (
 @each $type, $color in $gradient-mapping {
     .type-bg-#{$type} {
         background: $color !important;
+        width: 100%;
     }
+    .type-bg-modal-#{$type} {
+        background: $color !important;
+    }
+}
+
+.list {
+    padding: 0 10%;
+    width: 100%;
 }
 
 .cards {
     padding: 1rem;
     height: 100%;
+    width: 100%;
     cursor: pointer;
+}
+
+.imagePokemon {
+    position: relative;
+
+    .pokeball {
+        position: static;
+        z-index: 0;
+        opacity: 0.2;
+        width: 120px;
+        right: 10px;
+    }
+
+    .pokemon {
+        position: absolute;
+        bottom: 5px;
+        right: 5px;
+        width: 100px;
+    }
+}
+
+.infoPokemon {
+    background-color: red;
 }

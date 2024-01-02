@@ -6,7 +6,7 @@ import {
     ContextsProviderProps,
 } from '../interfaces/Contexts/IContexts';
 import { api } from '../services/api';
-import { IGetPokemons } from '../interfaces/Pokemons/IGetPokemons';
+import { IGetPokemons, IPokemon } from '../interfaces/Pokemons/IGetPokemons';
 
 const ContextsPokemons = createContext<ContextPropsPokemons | undefined>(
     undefined
@@ -15,15 +15,37 @@ const ContextsPokemons = createContext<ContextPropsPokemons | undefined>(
 export function ContextPokemonsProvider({ children }: ContextsProviderProps) {
     const [name, setName] = useState('');
     const [names, setNames] = useState<string[]>([]);
-    const [types, setTypes] = useState<string[]>([]);
+    const [types, setTypes] = useState<string[]>([
+        'Normal',
+        'Fire',
+        'Water',
+        'Electric',
+        'Grass',
+        'Ice',
+        'Fighting',
+        'Poison',
+        'Ground',
+        'Flying',
+        'Psychic',
+        'Bug',
+        'Rock',
+        'Ghost',
+        'Dark',
+        'Dragon',
+        'Steel',
+        'Fairy',
+    ]);
     const [type, setType] = useState('');
-    const [limit, setLimit] = useState(10);
+    const [limit, setLimit] = useState(12);
     const [page, setPage] = useState(1);
     const [total, setTotal] = useState(0);
-    const [pokemons, setPokemons] = useState<string[]>([]);
+    const [pokemons, setPokemons] = useState<IPokemon[]>([]);
+    const [loading, setLoading] = useState(true);
 
     async function handleGetPokemons(values: IGetPokemons) {
         const token = localStorage.getItem('token');
+        setLoading(true);
+
         await api
             .get('/pokemons', {
                 params: values,
@@ -53,14 +75,28 @@ export function ContextPokemonsProvider({ children }: ContextsProviderProps) {
                         icon: 'error',
                         confirmButtonText: 'Fechar',
                     });
+                } else {
+                    Swal.fire({
+                        title: 'Error!',
+                        text: 'Erro ao listar os Pokémons',
+                        icon: 'error',
+                        confirmButtonText: 'Fechar',
+                    });
                 }
-                Swal.fire({
-                    title: 'Error!',
-                    text: 'Erro ao listar os Pokémons',
-                    icon: 'error',
-                    confirmButtonText: 'Fechar',
-                });
+                setPokemons([]);
             });
+            setLoading(false);
+    }
+
+    async function getAllPokemonNames() {
+        const response = await fetch(
+            'https://pokeapi.co/api/v2/pokemon?limit=1302'
+        );
+        const data = await response.json();
+        const pokemonNames = data.results.map(
+            (pokemon: { name: string }) => pokemon.name
+        );
+        setNames(pokemonNames);
     }
 
     const contextValues: ContextPropsPokemons = {
@@ -80,6 +116,9 @@ export function ContextPokemonsProvider({ children }: ContextsProviderProps) {
         handleGetPokemons,
         total,
         setTotal,
+        getAllPokemonNames,
+        loading, 
+        setLoading,
     };
 
     return (

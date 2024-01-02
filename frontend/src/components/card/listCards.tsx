@@ -1,24 +1,13 @@
-// Arquivo ListCards.tsx
-import { useEffect } from 'react';
+/* eslint-disable react-hooks/exhaustive-deps */
 import { UseContextPokemons } from '../../hooks/useContextPokemons';
 import PokemonCard from './pokemonCard';
+import styles from '../../styles/components/Cards/pokemons.module.scss';
 
 export default function ListCards() {
-    const { handleGetPokemons, pokemons, name, type, page, limit } =
-        UseContextPokemons();
-
-    useEffect(() => {
-        const params = {
-            page: 1,
-            take: limit,
-            name: name ?? null,
-            type: type ?? null,
-        };
-        handleGetPokemons(params);
-    }, [name, type, page, limit]);
+    const { pokemons } = UseContextPokemons();
 
     return (
-        <div className="list">
+        <div className={`${styles.list} grid md:grid-cols-2 lg:grid-cols-3 gap-4 justify-between w-screen`}>
             {pokemons.map((pokemon, index) => (
                 <PokemonCard key={index} pokemon={pokemon} />
             ))}
