@@ -141,14 +141,16 @@ export class UsersRepositoryPrisma implements IUsersRepository {
 
     if (!user)
       throw new ApiError('Usuário não encontrado', 404);
-    
 
     const formattedTeam: IUsers = {
       id: user.id,
       name: user.name,
       created_at: user.created_at,
       updated_at: user.updated_at,
-      Pokemon: user.userHasPokemons.map((item) => item.Pokemon),
+      Pokemon: user.userHasPokemons.map((item) => ({
+        ...item.Pokemon,
+        userHasPokemonId: item.id,
+      })),
     };
 
     return formattedTeam;

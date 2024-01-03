@@ -9,11 +9,11 @@ export class DeletePokemonTeamController {
         const { id } = req.params;
     
         const deleteUseCase = container.resolve(DeletePokemonTeamUseCase);
-        await deleteUseCase.execute(id);
+        const data = await deleteUseCase.execute(id);
 
         return res.returnApi({
-            data: null,
-            message: 'Time deletado com sucesso',
+            data: data,
+            message: 'Pokémon deletado com sucesso',
             status: 200
         });
     }

@@ -29,7 +29,6 @@ export class InsertPokemonUseCase {
     let pokemonInfo = await this.pokemonsRepository.findByIdPokedex(pokemon);
 
     if(!pokemonInfo) {
-      console.log('teste if');
       const infoPokemon = await Pokemon.getPokemonById(pokemon);
       const data = {
         name: infoPokemon.name,

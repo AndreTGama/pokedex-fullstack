@@ -1,8 +1,11 @@
+.section {
+    width: 100%;
+    padding: 5% 10% 0% 10%;
+}
+
 .formSearch{
     display: flex;
     justify-content: space-between;
-    width: 100%;
-    padding: 5% 10%;
 
     form, select {
         width: 50%;

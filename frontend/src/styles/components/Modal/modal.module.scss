@@ -61,16 +61,14 @@ $gradient-mapping: (
         background: $color !important;
         width: 100%;
     }
-    .type-bg-modal-#{$type} {
-        background: $color !important;
-    }
-}
-
-.hover:hover {
-    box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
 }
 
 .list {
+    padding: 0 10%;
+    width: 100%;
+}
+
+.info {
     width: 100%;
 }
 
@@ -81,12 +79,15 @@ $gradient-mapping: (
     cursor: pointer;
 }
 
+.containerPokemon {
+    width: 100%;
+}
+
 .imagePokemon {
     position: relative;
-
+    
     .pokeball {
-        position: static;
-        z-index: 0;
+        position: absolute;
         opacity: 0.2;
         width: 120px;
         right: 10px;
@@ -94,12 +95,39 @@ $gradient-mapping: (
 
     .pokemon {
         position: absolute;
-        bottom: 5px;
-        right: 5px;
-        width: 100px;
+        top: 0px;
+        right: 10px;
+        width: 120px;
+        filter: drop-shadow(2px 2px 1px rgba(31, 31, 31, 0.514))
     }
 }
 
-.infoPokemon {
-    background-color: red;
+.description {
+    width: 100%;
+    color: #efefef;
+    font-weight: 500;
+    text-shadow: 1px 1px 2px #0b0b0b;
+}
+
+.titleEvolution{
+    margin-top: 25px;
+    color: #efefef;
+    font-weight: 700;
+}
+
+.circle {
+    margin: 5px;
+    border: 2px solid rgba(143, 143, 143, 0.226);
+    border-radius: 50%;
+    height: 60px;
+    width: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(143, 143, 143, 0.226);
+}
+
+.evolutionImg {
+    width: 60px;
+    filter: drop-shadow(2px 2px 1px rgba(31, 31, 31, 0.514))
 }

@@ -25,7 +25,7 @@ export function ContextsProvider({ children }: ContextsProviderProps) {
                 const data = response.data;
                 if (data.status == 201) {
                     Swal.fire({
-                        title: 'Success!',
+                        title: 'Sucesso!',
                         text: data.message,
                         icon: 'success',
                         confirmButtonText: 'Fechar',
@@ -65,7 +65,7 @@ export function ContextsProvider({ children }: ContextsProviderProps) {
                     localStorage.setItem('token', data.data.token);
 
                     Swal.fire({
-                        title: 'Success!',
+                        title: 'Sucesso!',
                         text: data.message,
                         icon: 'success',
                         confirmButtonText: 'Fechar',

@@ -5,7 +5,6 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import Login from './pages/login';
 import Pokemons from './pages/pokemons';
-import Teams from './pages/teams';
 
 const router = createBrowserRouter([
     {
@@ -15,10 +14,6 @@ const router = createBrowserRouter([
     {
         path: '/pokemons',
         element: <Pokemons />,
-    },
-    {
-        path: '/times',
-        element: <Teams />,
     },
 ]);
 

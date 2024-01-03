@@ -7,4 +7,5 @@ export interface IPokemons {
     created_at?: Date;
     updated_at?: Date;
     Users?: IUsers[];
+    userHasPokemonId?: string;
 }

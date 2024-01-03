@@ -7,7 +7,7 @@ export default function ListCards() {
     const { pokemons } = UseContextPokemons();
 
     return (
-        <div className={`${styles.list} grid md:grid-cols-2 lg:grid-cols-3 gap-4 justify-between w-screen`}>
+        <div className={`${styles.list} grid md:grid-cols-2 lg:grid-cols-3 gap-4 w-screen`}>
             {pokemons.map((pokemon, index) => (
                 <PokemonCard key={index} pokemon={pokemon} />
             ))}

@@ -7,6 +7,7 @@ import { DeleteController } from '../modules/Users/DeleteUseCase/DeleteControlle
 import { AuthMiddleware } from '../middlewares/AuthMiddleware';
 import { InsertPokemonController } from '../modules/Users/InsertPokemonTeamUseCase/InsertPokemonController';
 import { DeletePokemonTeamController } from '../modules/Users/DeletePokemonTeamUseCase/DeletePokemonTeamController';
+import { GetLoggedUserController } from '../modules/Users/GetLoggedUserUseCase/GetLoggedUserController';
 
 const usersRouter = Router();
 
@@ -19,6 +20,11 @@ const updatePasswordController = new UpdatePasswordController();
 const deleteController = new DeleteController();
 const insertPokemonController = new InsertPokemonController();
 const deletePokemonTeamController = new DeletePokemonTeamController();
+const getLoggedController = new GetLoggedUserController();
+
+usersRouter.get('/my/team', authMiddleware.auth, async (req, res) => {
+    return await getLoggedController.handle(req, res);
+});
 
 usersRouter.post('/', async (req, res) => {
     return await createController.handle(req, res);

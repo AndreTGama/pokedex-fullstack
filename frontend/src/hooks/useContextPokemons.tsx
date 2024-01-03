@@ -6,13 +6,27 @@ import {
     ContextsProviderProps,
 } from '../interfaces/Contexts/IContexts';
 import { api } from '../services/api';
-import { IGetPokemons, IPokemon } from '../interfaces/Pokemons/IGetPokemons';
+import { IGetPokemons, IPokemon, IPokemonComplete } from '../interfaces/Pokemons/IGetPokemons';
 
 const ContextsPokemons = createContext<ContextPropsPokemons | undefined>(
     undefined
 );
 
 export function ContextPokemonsProvider({ children }: ContextsProviderProps) {
+    const info = {
+        id: 0,
+        name: '',
+        img: '',
+        evolutions: [{
+            id: 0,
+            name: '',
+            img: ''
+        }],
+        types: [],
+        weight: 0,
+        height: 0,
+        description: ''
+    }
     const [name, setName] = useState('');
     const [names, setNames] = useState<string[]>([]);
     const [types, setTypes] = useState<string[]>([
@@ -40,7 +54,9 @@ export function ContextPokemonsProvider({ children }: ContextsProviderProps) {
     const [page, setPage] = useState(1);
     const [total, setTotal] = useState(0);
     const [pokemons, setPokemons] = useState<IPokemon[]>([]);
+    const [pokemon, setPokemon] = useState<IPokemonComplete>(info);
     const [loading, setLoading] = useState(true);
+    const [showModal, setShowModal] = useState(false);
 
     async function handleGetPokemons(values: IGetPokemons) {
         const token = localStorage.getItem('token');
@@ -58,12 +74,6 @@ export function ContextPokemonsProvider({ children }: ContextsProviderProps) {
                 if (data.status == 200) {
                     setTotal(data.data.count);
                     setPokemons(data.data.pokemons);
-                    Swal.fire({
-                        title: 'Success!',
-                        text: data.message,
-                        icon: 'success',
-                        confirmButtonText: 'Fechar',
-                    });
                 }
             })
             .catch(function (error) {
@@ -84,8 +94,46 @@ export function ContextPokemonsProvider({ children }: ContextsProviderProps) {
                     });
                 }
                 setPokemons([]);
+                setTotal(0);
+                setPage(1);
             });
             setLoading(false);
+    }
+
+    async function handleOnlyPokemon(id: number) {
+        const token = localStorage.getItem('token');
+        setShowModal(false);
+        await api
+            .get(`/pokemons/${id}`, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            })
+            .then(function (response) {
+                const data = response.data;
+                if (data.status == 200) {
+                    setPokemon(data.data);
+                    setShowModal(true);
+                }
+            })
+            .catch(function (error) {
+                if (error.response.data) {
+                    const response = error.response.data;
+                    Swal.fire({
+                        title: 'Error!',
+                        text: response.message,
+                        icon: 'error',
+                        confirmButtonText: 'Fechar',
+                    });
+                } else {
+                    Swal.fire({
+                        title: 'Error!',
+                        text: 'Erro ao listar os Pokémons',
+                        icon: 'error',
+                        confirmButtonText: 'Fechar',
+                    });
+                }
+            });
     }
 
     async function getAllPokemonNames() {
@@ -113,12 +161,17 @@ export function ContextPokemonsProvider({ children }: ContextsProviderProps) {
         page,
         setPage,
         pokemons,
+        pokemon,
+        setPokemon,
         handleGetPokemons,
         total,
         setTotal,
         getAllPokemonNames,
         loading, 
         setLoading,
+        showModal,
+        setShowModal,
+        handleOnlyPokemon,
     };
 
     return (
