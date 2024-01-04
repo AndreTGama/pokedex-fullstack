@@ -7,10 +7,10 @@ import { LoginValidation } from './LoginValidation';
 export class LoginController {
 
     async handle(req: Request, res: Response) {
-        const { name, password } = LoginValidation.validate(req.body);
+        const { email, password } = LoginValidation.validate(req.body);
         
         const loginUseCase = container.resolve(LoginUseCase);
-        const data = await loginUseCase.execute({name, password});
+        const data = await loginUseCase.execute({email, password});
 
         return res.returnApi({
             data: data,

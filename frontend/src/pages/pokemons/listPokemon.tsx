@@ -12,10 +12,10 @@ import Modal from '../../components/modal/ModalTeam';
 import { UseContextTeams } from '../../hooks/useContextTeams';
 
 export default function ListPokemons() {
+    const { showModalTeam } = UseContextTeams();
     const { loading, handleGetPokemons, name, type, page, limit } =
         UseContextPokemons();
 
-    const { showModalTeam, setShowModalTeam } = UseContextTeams();
     useEffect(() => {
         const params = {
             page: page,
@@ -31,26 +31,17 @@ export default function ListPokemons() {
             {loading ? (
                 <Loading />
             ) : (
-                <section className={styles.section}>
+                <div className={styles.section}>
                     <div className={styles.formSearch}>
                         <FormSearchPokemon />
                         <FormTypePokemon />
-                    </div>
-                    <div className="mt-5">
-                        <span
-                            className="dark:text-white cursor-pointer hover:text-teal-600 hover:underline"
-                            onClick={() => setShowModalTeam(true)}
-                        >
-                            {' '}
-                            Ver Time
-                        </span>
                     </div>
                     <div className="mt-5 cards">
                         <ListCards />
                         <Paginate />
                     </div>
                     {showModalTeam ? <Modal /> : null}
-                </section>
+                </div>
             )}
         </>
     );

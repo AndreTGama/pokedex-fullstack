@@ -1,16 +1,18 @@
 import { ReactNode } from 'react';
-import { ICreateUser } from '../Users/IUsers';
+import { ICreateUser, ILogin } from '../Users/IUsers';
 import { IGetPokemons, IPokemon, IPokemonComplete } from '../Pokemons/IGetPokemons';
 import { ITeam } from '../ITeams/ITeams';
 
 export interface ContextProps {
     showLoginForm: boolean;
     setShowLoginForm: React.Dispatch<React.SetStateAction<boolean>>;
+    email: string;
+    setEmail: React.Dispatch<React.SetStateAction<string>>;
     username: string;
     setUsername: React.Dispatch<React.SetStateAction<string>>;
     password: string;
     setPassword: React.Dispatch<React.SetStateAction<string>>;
-    handleLogin: (values: ICreateUser) => void;
+    handleLogin: (values: ILogin) => void;
     handleRegisterUser: (values: ICreateUser) => void;
 }
 

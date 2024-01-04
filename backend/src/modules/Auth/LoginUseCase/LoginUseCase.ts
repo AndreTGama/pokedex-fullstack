@@ -3,19 +3,19 @@ import { inject, injectable } from 'tsyringe';
 import { compare } from 'bcrypt';
 import { sign } from 'jsonwebtoken';
 
-import { ICreateUser } from '../../../interfaces/ICreate';
 import { IUsersRepository } from '../../../repositories/IUsersRepository';
 import { ApiError } from '../../../errors/ApiError';
 import { IResponse } from '../../../interfaces/IReturn';
+import { IAuth } from '../../../interfaces/IAuth';
 
 @injectable()
 export class LoginUseCase {
   constructor(
     @inject("UsersRepository") private usersRepository: IUsersRepository,
   ) {}
-  async execute({name, password} : ICreateUser) {
+  async execute({email, password} : IAuth) {
 
-    const user = await this.usersRepository.findByName(name);
+    const user = await this.usersRepository.findByEmail(email);
 
     if(!user)
       throw new ApiError('Treinador com esse nome não existe', 404);

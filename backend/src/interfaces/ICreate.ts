@@ -4,6 +4,7 @@ export interface ICreateTeam {
 }
 
 export interface ICreateUser {
+    email: string;
     name: string;
     password: string;
 }

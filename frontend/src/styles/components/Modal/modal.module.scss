@@ -91,6 +91,9 @@ $gradient-mapping: (
         opacity: 0.2;
         width: 120px;
         right: 10px;
+        @media only screen and (max-width: 645px) {
+            display: none;
+        }
     }
 
     .pokemon {
@@ -98,7 +101,11 @@ $gradient-mapping: (
         top: 0px;
         right: 10px;
         width: 120px;
-        filter: drop-shadow(2px 2px 1px rgba(31, 31, 31, 0.514))
+        filter: drop-shadow(2px 2px 1px rgba(31, 31, 31, 0.514));
+
+        @media only screen and (max-width: 645px) {
+            position: static;
+        }
     }
 }
 
@@ -130,4 +137,15 @@ $gradient-mapping: (
 .evolutionImg {
     width: 60px;
     filter: drop-shadow(2px 2px 1px rgba(31, 31, 31, 0.514))
+}
+
+.content {
+    display: flex;
+
+    @media only screen and (max-width: 700px) {
+        flex-direction: column-reverse;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+    }
 }

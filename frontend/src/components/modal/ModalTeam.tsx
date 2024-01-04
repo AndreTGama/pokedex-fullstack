@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect } from 'react';
 import classNames from 'classnames';
 
@@ -8,7 +9,12 @@ import Square from '../../assets/img/square.webp';
 import { UseContextTeams } from '../../hooks/useContextTeams';
 
 export default function PokemonCard() {
-    const { handleGetLoggedTeam, setShowModalTeam, team, handleConfirmDeletePokemonTeam } = UseContextTeams();
+    const {
+        handleGetLoggedTeam,
+        setShowModalTeam,
+        team,
+        handleConfirmDeletePokemonTeam,
+    } = UseContextTeams();
 
     function handleRemove(id: string) {
         handleConfirmDeletePokemonTeam(id);
@@ -25,7 +31,7 @@ export default function PokemonCard() {
                     <div
                         className={classNames(
                             styles.card,
-                            'bg-red-500 border-0 rounded-lg relative flex flex-col w-full outline-none focus:outline-none'
+                            'bg-red-500 dark:bg-slate-900 border-0 rounded-lg relative flex flex-col w-full outline-none focus:outline-none'
                         )}
                     >
                         <button
@@ -60,21 +66,36 @@ export default function PokemonCard() {
                                         alt="quadrados"
                                     />
                                 </div>
-                                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 justify-between">
-                                    {team.Pokemon.map((p, k) => (
-                                        <div 
-                                            key={k}
-                                            className={classNames(styles.circle, "cursor-pointer")}
-                                            onClick={() => handleRemove(p.userHasPokemonId)}
-                                        >
-                                            <img
-                                                src={p.img}
-                                                alt={`Icone do Pokémon ${p.name}`}
-                                                className="_pokemon_5erqb_440"
-                                            />
-                                        </div>
-                                    ))}
-                                </div>
+                                {team.Pokemon.length == 0 ? (
+                                    <div className={styles.textNoPokemon}>
+                                        <p>Você não tem pokémon no seu time</p>
+                                        <span>Pressione um Pokémon e o capture para poder ver o pokémon no seu time</span>
+                                    </div>
+                                ) : (
+                                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 justify-between">
+                                        {team.Pokemon.map((p, k) => (
+                                            <div
+                                                key={k}
+                                                className={classNames(
+                                                    styles.circle,
+                                                    'cursor-pointer'
+                                                )}
+                                                onClick={() =>
+                                                    handleRemove(
+                                                        p.userHasPokemonId
+                                                    )
+                                                }
+                                            >
+
+                                                <img
+                                                    src={p.img}
+                                                    alt={`Icone do Pokémon ${p.name}`}
+                                                    className="_pokemon_5erqb_440"
+                                                />
+                                            </div>
+                                        ))}
+                                    </div>
+                                )}
                             </div>
                         </div>
                     </div>

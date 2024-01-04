@@ -3,9 +3,6 @@
     align-items: center;
     justify-content: center;
     position: relative;
-    background: linear-gradient(#480ca8, #480ca8),
-        linear-gradient(to top left, #38245a, #38245a),
-        linear-gradient(to top right, #784bbf, #784bbf);
     color: #e9e9e9;
 
     .pokebalfirst {
@@ -60,4 +57,16 @@
 .evolutionImg {
     width: 70px;
     filter: drop-shadow(2px 2px 1px rgba(31, 31, 31, 0.514));
+}
+
+.textNoPokemon {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    p{
+        font-size: 18px;
+    }
+    span {
+        font-size: 14px;
+    }
 }

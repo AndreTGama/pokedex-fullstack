@@ -2,15 +2,13 @@ import { z } from 'zod';
 import { ApiError } from '../../../errors/ApiError';
 
 const createUserSchema = z.object({
-    name: z.string({
-        required_error: 'nome é obrigatório',
-        invalid_type_error: 'O campo name deve ser uma string',
-      }).refine(value => !/\s/.test(value), {
-        message: 'O campo name não pode conter espaços',
+    email: z.string({
+        required_error: 'E-mail é obrigatório',
+        invalid_type_error: 'O campo E-mail deve ser uma string',
       }),
     password: z.string({
-        required_error: 'senha é obrigatória',
-        invalid_type_error: 'O campo name deve ser uma string',
+        required_error: 'Senha é obrigatória',
+        invalid_type_error: 'O campo senha deve ser uma string',
     }),
 });
 

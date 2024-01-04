@@ -26,7 +26,7 @@ export default function PokemonCard({ pokemon }: { pokemon: IPokemon }) {
         <>
             <div
                 key={pokemon.id}
-                className={classNames(styles.hover, "max-w-sm w-full lg:max-w-full lg:flex cursor-pointer")}
+                className={classNames(styles.hover, "w-full lg:max-w-full lg:flex cursor-pointer")}
                 onClick={() => handleModal(pokemon)}
             >
                 <div className={classNames(cardClasses)}>

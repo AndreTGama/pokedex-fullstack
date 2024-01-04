@@ -3,7 +3,8 @@ import { IUsersHasPokemons } from './UsersHasPokemons';
 
 export interface IUsers {
   id: string;
-  name:string;
+  email: string;
+  name: string;
   password?: string;
   userHasPokemons?: IUsersHasPokemons[];
   Pokemon?: IPokemons[];

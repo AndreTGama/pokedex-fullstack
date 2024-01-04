@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useState } from 'react';
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
 
@@ -7,7 +7,7 @@ import {
     ContextsProviderProps,
 } from '../interfaces/Contexts/IContexts';
 import { api } from '../services/api';
-import { ICreateUser } from '../interfaces/Users/IUsers';
+import { ICreateUser, ILogin } from '../interfaces/Users/IUsers';
 
 const Contexts = createContext<ContextProps | undefined>(undefined);
 
@@ -15,6 +15,7 @@ export function ContextsProvider({ children }: ContextsProviderProps) {
     const navigate = useNavigate();
 
     const [showLoginForm, setShowLoginForm] = useState(true);
+    const [email, setEmail] = useState('');
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
@@ -36,6 +37,7 @@ export function ContextsProvider({ children }: ContextsProviderProps) {
                 }
             })
             .catch(function (error) {
+                console.log(error.response);
                 if (error.response.data) {
                     const response = error.response.data;
                     Swal.fire({
@@ -44,17 +46,18 @@ export function ContextsProvider({ children }: ContextsProviderProps) {
                         icon: 'error',
                         confirmButtonText: 'Fechar',
                     });
+                } else {
+                    Swal.fire({
+                        title: 'Error!',
+                        text: 'Erro ao listar os Pokémons',
+                        icon: 'error',
+                        confirmButtonText: 'Fechar',
+                    });
                 }
-                Swal.fire({
-                    title: 'Error!',
-                    text: 'Erro ao cadastrar usuário',
-                    icon: 'error',
-                    confirmButtonText: 'Fechar',
-                });
             });
     }
 
-    async function handleLogin(values: ICreateUser) {
+    async function handleLogin(values: ILogin) {
         await await api
             .post('/auth', values)
             .then(function (response) {
@@ -85,19 +88,22 @@ export function ContextsProvider({ children }: ContextsProviderProps) {
                         icon: 'error',
                         confirmButtonText: 'Fechar',
                     });
+                } else {
+                    Swal.fire({
+                        title: 'Error!',
+                        text: 'Erro ao listar os Pokémons',
+                        icon: 'error',
+                        confirmButtonText: 'Fechar',
+                    });
                 }
-                Swal.fire({
-                    title: 'Error!',
-                    text: 'Erro ao fazer login',
-                    icon: 'error',
-                    confirmButtonText: 'Fechar',
-                });
             });
     }
 
     const contextValues: ContextProps = {
         showLoginForm,
         setShowLoginForm,
+        email,
+        setEmail,
         username,
         setUsername,
         password,

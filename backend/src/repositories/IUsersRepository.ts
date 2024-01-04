@@ -8,6 +8,7 @@ export interface IUsersRepository {
     create(data: ICreateUserDTO): Promise<IUsers>;
     findByName(name: string): Promise<IUsers>;
     getByName(name: string): Promise<IUsers>;
+    findByEmail(email: string): Promise<IUsers>;
     findById(id: string): Promise<IUsers>;
     countAll(): Promise<ICount>;
     paginate({skip, take}: IPaginate): Promise<IUsers[]>;

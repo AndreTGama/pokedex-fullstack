@@ -47,6 +47,7 @@ export class UsersRepositoryPrisma implements IUsersRepository {
 
     const users: IUsers[] = teams.map((team) => ({
         id: team.id,
+        email: team.email,
         name: team.name,
         created_at: team.created_at,
         updated_at: team.updated_at,
@@ -81,6 +82,7 @@ export class UsersRepositoryPrisma implements IUsersRepository {
   async create(data: ICreateUserDTO): Promise<IUsers> {
     const user = await this.repository.create({
       data: {
+        email: data.email,
         name: data.name,
         password: data.password,
         created_at: new Date()
@@ -105,6 +107,36 @@ export class UsersRepositoryPrisma implements IUsersRepository {
     const user = await this.repository.findFirst({
       where: {
         name,
+      },
+    });
+
+    return user as IUsers;
+  }
+  
+  async findByEmail(email: string): Promise<IUsers> {
+    const user = await this.repository.findFirst({
+      where: {
+        email,
+      },
+      include: {
+        userHasPokemons: {
+          where:{
+            deleted_at: null
+          },
+          include: {
+            Pokemon: {
+              select: {
+                id: true,
+                name: true,
+                img: true,
+                id_pokedex: true,
+                created_at: true,
+                updated_at: true,
+                deleted_at: true,
+              },
+            },
+          },
+        },
       },
     });
 
@@ -144,6 +176,7 @@ export class UsersRepositoryPrisma implements IUsersRepository {
 
     const formattedTeam: IUsers = {
       id: user.id,
+      email: user.email,
       name: user.name,
       created_at: user.created_at,
       updated_at: user.updated_at,

@@ -33,7 +33,7 @@ export function ContextTeamsProvider({ children }: ContextsProviderProps) {
                 if (data.status == 201) {
                     Swal.fire({
                         title: 'Sucesso!',
-                        text: data.message,
+                        text: 'Pokémon capturado com sucesso!!',
                         icon: 'success',
                         confirmButtonText: 'Fechar',
                     });
