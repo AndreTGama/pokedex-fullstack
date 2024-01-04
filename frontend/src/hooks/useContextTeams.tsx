@@ -100,7 +100,7 @@ export function ContextTeamsProvider({ children }: ContextsProviderProps) {
                     setTeam(data.data);
                     Swal.fire({
                         title: 'Sucesso!',
-                        text: data.message,
+                        text: 'Pokémon foi libertado',
                         icon: 'success',
                         confirmButtonText: 'Fechar',
                     });
@@ -129,13 +129,13 @@ export function ContextTeamsProvider({ children }: ContextsProviderProps) {
     async function handleConfirmDeletePokemonTeam(id: string) {
         Swal.fire({
             title: 'Cuidado!',
-            text: 'Você desejá remover esse pokémon do seu time?',
+            text: 'Você desejá libertar esse Pokémon?',
             icon: 'warning',
             showDenyButton: true,
-            denyButtonText: 'Cancelar',
-            confirmButtonText: 'Sim',
+            denyButtonText: 'Sim',
+            confirmButtonText: 'Cancelar',
         }).then(result => {
-            if (result.isConfirmed) {
+            if (result.isDenied) {
                 handleDeletePokemonTeam(id);
             }
         });

@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import classNames from 'classnames';
 
 import { IPokemon } from '../../interfaces/Pokemons/IGetPokemons';
@@ -5,9 +6,11 @@ import { UseContextPokemons } from '../../hooks/useContextPokemons';
 import styles from '../../styles/components/Cards/pokemons.module.scss';
 import pokeball from '../../assets/img/pokeball.webp';
 import Modal from '../modal/ModalPokemon';
+import Loading from '../loading';
 
 export default function PokemonCard({ pokemon }: { pokemon: IPokemon }) {
     const { showModal, handleOnlyPokemon } = UseContextPokemons();
+    const [loading, setLoading] = useState(false);
 
     function capitalizeFirstLetter(word: string) {
         return word.charAt(0).toUpperCase() + word.slice(1);
@@ -18,15 +21,23 @@ export default function PokemonCard({ pokemon }: { pokemon: IPokemon }) {
         'border-r border-b border-l border-gray-400 lg:border-l-0 lg:border-t lg:border-gray-400 rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-around leading-normal'
     );
 
-    function handleModal(pokemon: IPokemon){
-        handleOnlyPokemon(pokemon.id)
+    async function handleModal(pokemon: IPokemon) {
+        try {
+            setLoading(true);
+            await handleOnlyPokemon(pokemon.id);
+        } finally {
+            setLoading(false);
+        }
     }
 
     return (
         <>
             <div
                 key={pokemon.id}
-                className={classNames(styles.hover, "w-full lg:max-w-full lg:flex cursor-pointer")}
+                className={classNames(
+                    styles.hover,
+                    'w-full lg:max-w-full lg:flex cursor-pointer'
+                )}
                 onClick={() => handleModal(pokemon)}
             >
                 <div className={classNames(cardClasses)}>
@@ -64,6 +75,12 @@ export default function PokemonCard({ pokemon }: { pokemon: IPokemon }) {
                     </div>
                 </div>
             </div>
+            {loading && (
+                <>
+                    <div className="opacity-50 fixed inset-0 z-40 bg-black"></div>
+                    <Loading />
+                </>
+            )}
             {showModal ? <Modal /> : null}
         </>
     );

@@ -86,6 +86,7 @@ export default function PokemonCard() {
                                                     )
                                                 }
                                             >
+                                                <span>X</span>
 
                                                 <img
                                                     src={p.img}

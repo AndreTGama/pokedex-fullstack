@@ -51,6 +51,19 @@
     z-index: 11;
     &:hover {
         box-shadow: 2px 2px 5px rgba(15, 15, 15, 0.2);
+        span {
+            position: relative;
+            bottom: 35px;
+            left: 70px;
+            color: red;
+            font-size: 20px;
+            z-index: 1;
+            cursor: pointer;
+            display: block;
+        }
+    }
+    span {
+        display: none;
     }
 }
 
@@ -63,7 +76,7 @@
     position: relative;
     z-index: 1;
     text-align: center;
-    p{
+    p {
         font-size: 18px;
     }
     span {
