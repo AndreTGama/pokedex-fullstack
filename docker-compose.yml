@@ -1,34 +1,45 @@
-version: '3'
+version: '3.8'
+
 services:
-  backend:
-    build:
-      context: ./backend
-    ports:
-      - "3000:3000"
-    depends_on:
-      - database
+    postgres:
+        image: postgres:latest
+        container_name: postgres
+        restart: always
+        volumes:
+            - ./db-api:/var/lib/postgresql/data
+        environment:
+            POSTGRES_USER: root
+            POSTGRES_PASSWORD: root
+            POSTGRES_DB: pokedex
+        ports:
+            - '5440:5440'
 
-  # frontend:
-  #   build:
-  #     context: ./frontend
-  #   ports:
-  #     - "3001:3001"
+    backend:
+        build:
+            context: ./backend
+        container_name: backend
+        restart: always
+        environment:
+            PORT: 3000
+            JWT_SECRET: 'secret'
+            HOST: '0.0.0.0'
+            DATABASE_URL: 'postgresql://root:root@postgres:5440/pokedex?schema=public'
+            APP_URL: 'http://127.0.0.1:3001'
+            TIME_ZONE: 'America/Sao_Paulo'
+            APP_NAME: 'Pokedex'
+        ports:
+            - '3000:3000'
+        depends_on:
+            - postgres
 
-  database:
-    image: postgres:15
-    environment:
-      POSTGRES_USER: root
-      POSTGRES_PASSWORD: root
-      POSTGRES_DB: pokedex
-    ports:
-      - "5432:5432"
-  
-  pgadmin:
-    image: dpage/pgadmin4
-    environment:
-      PGADMIN_DEFAULT_EMAIL: admin@example.com
-      PGADMIN_DEFAULT_PASSWORD: admin
-    ports:
-      - "8080:80"
-    depends_on:
-      - database
+    frontend:
+        build:
+            context: ./frontend
+        container_name: frontend
+        restart: always
+        environment:
+            VITE_API_URL: 'http://backend:3000'
+        ports:
+            - '3001:3001'
+        depends_on:
+            - backend
