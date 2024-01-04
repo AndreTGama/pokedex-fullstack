@@ -6,7 +6,7 @@ COPY package.json ./
 
 COPY vite.config.ts ./
 
-RUN npm install
+RUN npm install --loglevel verbose
 
 COPY . .
 

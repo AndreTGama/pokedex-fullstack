@@ -6,7 +6,11 @@ COPY package.json ./
 
 COPY tsconfig.json ./
 
-RUN npm install
+# RUN npm install -g npm@10.2.5
+
+RUN npm cache clean -f
+
+RUN npm install --loglevel verbose
 
 COPY . .
 
