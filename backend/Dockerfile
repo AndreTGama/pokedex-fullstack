@@ -1,6 +1,10 @@
-FROM node:18
+FROM node:18.12.1
 
 WORKDIR /srv/app
+
+ADD https://raw.githubusercontent.com/vishnubob/wait-for-it/master/wait-for-it.sh /usr/local/bin/wait-for-it
+
+RUN chmod +x /usr/local/bin/wait-for-it
 
 COPY package.json ./
 
@@ -16,4 +20,4 @@ COPY . .
 
 EXPOSE 3000
 
-CMD ["npx", "prisma", "migrate", "deploy", "&&", "npm", "run", "dev"]
+CMD ["npm", "run", "dev"]

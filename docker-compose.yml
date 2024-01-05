@@ -12,7 +12,19 @@ services:
             POSTGRES_PASSWORD: root
             POSTGRES_DB: pokedex
         ports:
-            - '5440:5440'
+            - '5432:5432'
+
+    pgadmin:
+        image: dpage/pgadmin4:latest
+        container_name: pgadmin
+        restart: always
+        environment:
+            PGADMIN_DEFAULT_EMAIL: root@example.com
+            PGADMIN_DEFAULT_PASSWORD: root
+        ports:
+            - '5050:80'
+        depends_on:
+            - postgres
 
     backend:
         build:
@@ -23,7 +35,7 @@ services:
             PORT: 3000
             JWT_SECRET: 'secret'
             HOST: '0.0.0.0'
-            DATABASE_URL: 'postgresql://root:root@postgres:5440/pokedex?schema=public'
+            DATABASE_URL: 'postgresql://root:root@postgres:5432/pokedex?schema=public'
             APP_URL: 'http://127.0.0.1:3001'
             TIME_ZONE: 'America/Sao_Paulo'
             APP_NAME: 'Pokedex'
@@ -38,7 +50,7 @@ services:
         container_name: frontend
         restart: always
         environment:
-            VITE_API_URL: 'http://backend:3000'
+            VITE_API_URL: 'http://127.0.0.1:3000'
         ports:
             - '3001:3001'
         depends_on:
