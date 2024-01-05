@@ -20,7 +20,9 @@ O projeto foi dividido em duas partes. O backend, desenvolvido em Node.js, permi
 ## Images
 
 <div style="display:flex">
-    <img src="" alt="image project"/>
-    <img src="" alt="image project"/>
-    <img src="" alt="image project"/>
+    <img src="https://raw.githubusercontent.com/AndreTGama/pokedex-fullstack/main/imagens/Login.png" alt="image project"/>
+    <img src="https://raw.githubusercontent.com/AndreTGama/pokedex-fullstack/main/imagens/Cadastro.png" alt="image project"/>
+    <img src="https://raw.githubusercontent.com/AndreTGama/pokedex-fullstack/main/imagens/Lista.png" alt="image project"/>
+    <img src="https://raw.githubusercontent.com/AndreTGama/pokedex-fullstack/main/imagens/Pokemon.png" alt="image project"/>
+    <img src="https://raw.githubusercontent.com/AndreTGama/pokedex-fullstack/main/imagens/Time.png" alt="image project"/>
 </div>
