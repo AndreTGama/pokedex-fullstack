@@ -1,0 +1,1986 @@
+{
+	"info": {
+		"_postman_id": "5f86e4b1-8fc8-423d-8593-72cc3ce4c4a7",
+		"name": "Back-end Pokedex",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "2548831"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Pokémon",
+					"item": [
+						{
+							"name": "Add Pokemon in Team",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"pokemon\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/users/pokemon",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"users",
+										"pokemon"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Error: Usuário já tem 5 pokémons",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"pokemon\": 1\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/users/pokemon",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"users",
+												"pokemon"
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "79"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"4f-mLvl8YMtHc9nR0DcfO6f7G8MBsE\""
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 01 Jan 2024 15:20:38 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"data\": null,\n    \"message\": \"Usuário já tem 5 Pokémons em seu time\",\n    \"status\": 401\n}"
+								},
+								{
+									"name": "Error: Token não informado",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"pokemon\": 1\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/users/pokemon",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"users",
+												"pokemon"
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "69"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"45-SpZgO+BHUQ08GJUHu2hTcwh7xfg\""
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 01 Jan 2024 15:21:03 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"data\": null,\n    \"message\": \"Token de acesso não informado\",\n    \"status\": 401\n}"
+								},
+								{
+									"name": "Sucesso: Pokémon inserido com sucesso",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"pokemon\": 1\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/users/pokemon",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"users",
+												"pokemon"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "489"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"1e9-9OdEbsGDJt4pjSTHQVRm9p508ME\""
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 01 Jan 2024 15:23:36 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"data\": {\n        \"id\": \"65f4f5cf-592f-4ac6-8c55-9e6f012399f4\",\n        \"name\": \"Red\",\n        \"created_at\": \"2024-01-01T15:23:22.224Z\",\n        \"updated_at\": \"2024-01-01T15:23:22.226Z\",\n        \"Pokemon\": [\n            {\n                \"id\": \"6497688d-ab03-4081-95b6-c663db87f19f\",\n                \"name\": \"bulbasaur\",\n                \"img\": \"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png\",\n                \"id_pokedex\": 1,\n                \"created_at\": \"2024-01-01T15:23:36.281Z\",\n                \"updated_at\": \"2024-01-01T15:23:36.283Z\",\n                \"deleted_at\": null\n            }\n        ]\n    },\n    \"status\": 201,\n    \"message\": \"Pokémon cadastrado no time com sucesso\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Add Pokemon in Team",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"pokemon\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/users/pokemon/70837fbe-0685-428d-b552-a44f19a74127",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"users",
+										"pokemon",
+										"70837fbe-0685-428d-b552-a44f19a74127"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Sucesso: Retorno de sucesso",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"pokemon\": 1\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/users/pokemon/70837fbe-0685-428d-b552-a44f19a74127",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"users",
+												"pokemon",
+												"70837fbe-0685-428d-b552-a44f19a74127"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "64"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"40-MVr3IyA3c8LmFVAzlMqZrg97ZcU\""
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 01 Jan 2024 15:31:31 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"data\": null,\n    \"status\": 200,\n    \"message\": \"Time deletado com sucesso\"\n}"
+								},
+								{
+									"name": "Error: Token não informado",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"pokemon\": 1\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/users/pokemon/fad9c5fe-5011-4e81-a2ca-95d326be0231",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"users",
+												"pokemon",
+												"fad9c5fe-5011-4e81-a2ca-95d326be0231"
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "69"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"45-SpZgO+BHUQ08GJUHu2hTcwh7xfg\""
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 01 Jan 2024 15:32:02 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"data\": null,\n    \"message\": \"Token de acesso não informado\",\n    \"status\": 401\n}"
+								},
+								{
+									"name": "Error: Vículo não encontrado",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"pokemon\": 1\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/users/pokemon/fad9c5fe-5011-4e81-a2ca-95d32asdf6be0231",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"users",
+												"pokemon",
+												"fad9c5fe-5011-4e81-a2ca-95d32asdf6be0231"
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "63"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"3f-YwjSYyC+ewCUrmXxhwe2cE97jgk\""
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 01 Jan 2024 15:32:21 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"data\": null,\n    \"message\": \"Vínculo não encontrado\",\n    \"status\": 404\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Create User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"teste@pokemon.co\",\r\n    \"name\": \"Red\",\r\n    \"password\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/users",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Sucesso: Usuário  cadastrado com sucesso",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"teste@pokemon.co\",\r\n    \"name\": \"Red\",\r\n    \"password\": \"123456\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/users",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"users"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "324"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"144-HG1ei3Qe1oNg82jR7BvisCLom+I\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 03 Jan 2024 22:01:19 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": \"11a0d914-3020-4e89-8e0d-edde703d4bc9\",\n        \"email\": \"teste@pokemon.co\",\n        \"name\": \"Red\",\n        \"password\": \"$2b$08$kN4LzHfVjbZssc.ScEdxeuawnzYqqMjQIaQnrbHMDjzvosna1cLfe\",\n        \"created_at\": \"2024-01-03T22:01:19.520Z\",\n        \"updated_at\": \"2024-01-03T22:01:19.529Z\",\n        \"deleted_at\": null\n    },\n    \"status\": 201,\n    \"message\": \"Treinador cadastrado com sucesso\"\n}"
+						},
+						{
+							"name": "Error: E-mail já está em uso",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"teste@pokemon.co\",\r\n    \"name\": \"Red\",\r\n    \"password\": \"123456\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/users",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"users"
+									]
+								}
+							},
+							"status": "Conflict",
+							"code": 409,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "62"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3e-BFni7oj41dKWuayz4Nvd7tDKl+s\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 03 Jan 2024 22:01:52 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": null,\n    \"message\": \"E-mail já está em uso\",\n    \"status\": 409\n}"
+						},
+						{
+							"name": "Error: E-mail é obrigatório",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n   \r\n    \"name\": \"Red\",\r\n    \"password\": \"123456\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/users",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"users"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "61"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3d-2RZc1tXk2Wp4zGVpl+EziX4VGq0\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 03 Jan 2024 22:02:09 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": null,\n    \"message\": \"E-mail é obrigatório\",\n    \"status\": 400\n}"
+						},
+						{
+							"name": "Error: Nome é obrigatório",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"teste@pokemon.co\",\r\n \r\n    \"password\": \"123456\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/users",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"users"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "59"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3b-Vs8J/Wtj82VP3DpwwVcI5NV8hp0\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 03 Jan 2024 22:02:49 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": null,\n    \"message\": \"Nome é obrigatório\",\n    \"status\": 400\n}"
+						},
+						{
+							"name": "Error: Senha é obrigatória",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"teste@pokemon.co\",\r\n    \"name\": \"Red\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/users",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"users"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "60"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3c-wvtBFrTebubkmrFtz3vKkD6i9ec\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 03 Jan 2024 22:03:10 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": null,\n    \"message\": \"Senha é obrigatória\",\n    \"status\": 400\n}"
+						}
+					]
+				},
+				{
+					"name": "List Users",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/users?page=1&take=10",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "take",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User Id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "page",
+								"value": "1",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "take",
+								"value": "1",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/users/efb96169-f669-4ae7-a413-bcb7e2c28023",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users",
+								"efb96169-f669-4ae7-a413-bcb7e2c28023"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get My Team",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "page",
+								"value": "1",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "take",
+								"value": "1",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/users/my/team",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users",
+								"my",
+								"team"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Pokemons",
+			"item": [
+				{
+					"name": "List Pokemons",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/pokemons?take=25&page=1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"pokemons"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "normala",
+									"disabled": true
+								},
+								{
+									"key": "name",
+									"value": "eevee",
+									"disabled": true
+								},
+								{
+									"key": "take",
+									"value": "25"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Sucesso: Retorno com sucesso",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/pokemons?page=1&take=10",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"pokemons"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "take",
+											"value": "10"
+										},
+										{
+											"key": "type",
+											"value": "normal",
+											"disabled": true
+										},
+										{
+											"key": "name",
+											"value": "eevee",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1687"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"697-0z+Efu9L7f+dcKLINp0DxXXrSck\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 01 Jan 2024 14:51:08 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"count\": 1302,\n        \"pokemons\": [\n            {\n                \"id\": 1,\n                \"name\": \"bulbasaur\",\n                \"img\": \"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png\",\n                \"types\": [\n                    \"grass\",\n                    \"poison\"\n                ],\n                \"weight\": 69,\n                \"height\": 7\n            },\n            {\n                \"id\": 2,\n                \"name\": \"ivysaur\",\n                \"img\": \"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/2.png\",\n                \"types\": [\n                    \"grass\",\n                    \"poison\"\n                ],\n                \"weight\": 130,\n                \"height\": 10\n            },\n            {\n                \"id\": 3,\n                \"name\": \"venusaur\",\n                \"img\": \"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/3.png\",\n                \"types\": [\n                    \"grass\",\n                    \"poison\"\n                ],\n                \"weight\": 1000,\n                \"height\": 20\n            },\n            {\n                \"id\": 4,\n                \"name\": \"charmander\",\n                \"img\": \"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png\",\n                \"types\": [\n                    \"fire\"\n                ],\n                \"weight\": 85,\n                \"height\": 6\n            },\n            {\n                \"id\": 5,\n                \"name\": \"charmeleon\",\n                \"img\": \"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/5.png\",\n                \"types\": [\n                    \"fire\"\n                ],\n                \"weight\": 190,\n                \"height\": 11\n            },\n            {\n                \"id\": 6,\n                \"name\": \"charizard\",\n                \"img\": \"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/6.png\",\n                \"types\": [\n                    \"fire\",\n                    \"flying\"\n                ],\n                \"weight\": 905,\n                \"height\": 17\n            },\n            {\n                \"id\": 7,\n                \"name\": \"squirtle\",\n                \"img\": \"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png\",\n                \"types\": [\n                    \"water\"\n                ],\n                \"weight\": 90,\n                \"height\": 5\n            },\n            {\n                \"id\": 8,\n                \"name\": \"wartortle\",\n                \"img\": \"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/8.png\",\n                \"types\": [\n                    \"water\"\n                ],\n                \"weight\": 225,\n                \"height\": 10\n            },\n            {\n                \"id\": 9,\n                \"name\": \"blastoise\",\n                \"img\": \"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/9.png\",\n                \"types\": [\n                    \"water\"\n                ],\n                \"weight\": 855,\n                \"height\": 16\n            },\n            {\n                \"id\": 10,\n                \"name\": \"caterpie\",\n                \"img\": \"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/10.png\",\n                \"types\": [\n                    \"bug\"\n                ],\n                \"weight\": 29,\n                \"height\": 3\n            }\n        ]\n    },\n    \"status\": 200,\n    \"message\": \"Lista com os pokémons\"\n}"
+						},
+						{
+							"name": "Error: Token de acesso não informado",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/pokemons?page=1&take=10",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"pokemons"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "take",
+											"value": "10"
+										},
+										{
+											"key": "type",
+											"value": "normal",
+											"disabled": true
+										},
+										{
+											"key": "name",
+											"value": "eevee",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "69"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"45-SpZgO+BHUQ08GJUHu2hTcwh7xfg\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 01 Jan 2024 14:50:39 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": null,\n    \"message\": \"Token de acesso não informado\",\n    \"status\": 401\n}"
+						},
+						{
+							"name": "Error: Take não pode passar de 25",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/pokemons?page=1&take=100",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"pokemons"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "type",
+											"value": "normal",
+											"disabled": true
+										},
+										{
+											"key": "name",
+											"value": "eevee",
+											"disabled": true
+										},
+										{
+											"key": "take",
+											"value": "100"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "78"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"4e-qKWvz+uzZPvzrozkkJ7PrT+9q4Q\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 01 Jan 2024 14:52:23 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": null,\n    \"message\": \"Limite da página deve ser entre 1 e 25\",\n    \"status\": 400\n}"
+						},
+						{
+							"name": "Error: Consulta por nome de Pokémon que não existe",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/pokemons?name=eeveee&take=25&page=1",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"pokemons"
+									],
+									"query": [
+										{
+											"key": "type",
+											"value": "normal",
+											"disabled": true
+										},
+										{
+											"key": "name",
+											"value": "eeveee"
+										},
+										{
+											"key": "take",
+											"value": "25"
+										},
+										{
+											"key": "page",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "63"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3f-L4z0y8+O2YvcfnBlKVAlj6IUrUg\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 01 Jan 2024 14:54:06 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": null,\n    \"message\": \"Pokémon não encontrado\",\n    \"status\": 404\n}"
+						},
+						{
+							"name": "Error: Tipo de Pokémon não existe",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/pokemons?type=normala&name=eevee&take=25&page=1",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"pokemons"
+									],
+									"query": [
+										{
+											"key": "type",
+											"value": "normala"
+										},
+										{
+											"key": "name",
+											"value": "eevee"
+										},
+										{
+											"key": "take",
+											"value": "25"
+										},
+										{
+											"key": "page",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "65"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"41-cG1fOG06DezhNAJzzQKl63vsl2M\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 01 Jan 2024 14:55:19 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": null,\n    \"message\": \"Erro ao encontrar Pokémon\",\n    \"status\": 404\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Pokemon Id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/pokemons/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"pokemons",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Sucesso: Retorno com sucesso",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/pokemons/1",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"pokemons",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "696"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2b8-TTqhHXie7uTZ1N6VqgPFAnxwCxM\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 01 Jan 2024 14:55:56 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": 1,\n        \"name\": \"bulbasaur\",\n        \"img\": \"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png\",\n        \"evolutions\": [\n            {\n                \"id\": 1,\n                \"name\": \"bulbasaur\",\n                \"img\": \"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png\"\n            },\n            {\n                \"id\": 2,\n                \"name\": \"ivysaur\",\n                \"img\": \"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/2.png\"\n            },\n            {\n                \"id\": 3,\n                \"name\": \"venusaur\",\n                \"img\": \"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/3.png\"\n            }\n        ],\n        \"types\": [\n            \"grass\",\n            \"poison\"\n        ],\n        \"weight\": 69,\n        \"height\": 7,\n        \"description\": \"A strange seed was\\nplanted on its\\nback at birth.\\fThe plant sprouts\\nand grows with\\nthis POKéMON.\"\n    },\n    \"status\": 200,\n    \"message\": \"Lista com os pokémons\"\n}"
+						},
+						{
+							"name": "Error: Id do Pokémon fornecido está incorreto",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/pokemons/1500",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"pokemons",
+										"1500"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "63"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3f-L4z0y8+O2YvcfnBlKVAlj6IUrUg\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 01 Jan 2024 14:56:30 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": null,\n    \"message\": \"Pokémon não encontrado\",\n    \"status\": 404\n}"
+						},
+						{
+							"name": "Error: Token não informado",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/pokemons/1500",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"pokemons",
+										"1500"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "69"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"45-SpZgO+BHUQ08GJUHu2hTcwh7xfg\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 01 Jan 2024 14:57:35 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": null,\n    \"message\": \"Token de acesso não informado\",\n    \"status\": 401\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);\r",
+									"pm.collectionVariables.set(\"token\", jsonData.data.token);\r",
+									"postman.setEnvironmentVariable(\"token\", jsonData.data.token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"teste@pokemon.co\",\r\n    \"password\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/auth",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"auth"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Sucesso: Login feito com sucesso",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"teste@pokemon.co\",\r\n    \"password\": \"123456\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/auth",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"auth"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "473"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1d9-iEnF/2WnE0cD/wOzFYFP/6ym6Lg\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 03 Jan 2024 22:07:26 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDQzMTk2NDYsImV4cCI6MTcwNDQwNjA0Niwic3ViIjoiMTFhMGQ5MTQtMzAyMC00ZTg5LThlMGQtZWRkZTcwM2Q0YmM5In0.BRn3sV12vB7y1FkDPhYgQMqNsZe5SH1oYBEp6sOhcVE\",\n        \"account\": {\n            \"id\": \"11a0d914-3020-4e89-8e0d-edde703d4bc9\",\n            \"email\": \"teste@pokemon.co\",\n            \"name\": \"Red\",\n            \"created_at\": \"2024-01-03T22:01:19.520Z\",\n            \"updated_at\": \"2024-01-03T22:01:19.529Z\",\n            \"deleted_at\": null,\n            \"userHasPokemons\": []\n        }\n    },\n    \"status\": 200,\n    \"message\": \"Login feito com sucesso\"\n}"
+						},
+						{
+							"name": "Error: Treinador não existe",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"andre@email.com\",\r\n    \"password\": \"123456\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/auth",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"auth"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "74"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"4a-0GvLgmKpJyBy15myU3Z0I80plVc\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 03 Jan 2024 22:06:58 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": null,\n    \"message\": \"Treinador com esse nome não existe\",\n    \"status\": 404\n}"
+						},
+						{
+							"name": "Error: Campo e-mail é obrigatório",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"password\": \"123456\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/auth",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"auth"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "61"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3d-2RZc1tXk2Wp4zGVpl+EziX4VGq0\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 03 Jan 2024 22:07:58 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": null,\n    \"message\": \"E-mail é obrigatório\",\n    \"status\": 400\n}"
+						},
+						{
+							"name": "Error: Campo senha é obrigatória",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"teste@pokemon.co\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/auth",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"auth"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "60"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3c-wvtBFrTebubkmrFtz3vKkD6i9ec\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 03 Jan 2024 22:08:21 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": null,\n    \"message\": \"Senha é obrigatória\",\n    \"status\": 400\n}"
+						},
+						{
+							"name": "Error: Treinador desativado",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"teste@pokemon.co\",\r\n    \"password\": \"123456\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/auth",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"auth"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "65"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"41-uy3Ue6ALQGBriF4phK0bBEczVl4\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 03 Jan 2024 22:09:58 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": null,\n    \"message\": \"Treinador está desativado\",\n    \"status\": 400\n}"
+						}
+					]
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "token",
+			"value": ""
+		}
+	]
+}

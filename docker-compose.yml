@@ -12,7 +12,7 @@ services:
             POSTGRES_PASSWORD: root
             POSTGRES_DB: pokedex
         ports:
-            - '5433:5433'
+            - '5432:5432'
 
     pgadmin:
         image: dpage/pgadmin4:latest
@@ -35,7 +35,7 @@ services:
             PORT: 3000
             JWT_SECRET: 'secret'
             HOST: '0.0.0.0'
-            DATABASE_URL: 'postgresql://root:root@postgres:5433/pokedex?schema=public'
+            DATABASE_URL: 'postgresql://root:root@postgres:5432/pokedex?schema=public'
             APP_URL: 'http://127.0.0.1:3001'
             TIME_ZONE: 'America/Sao_Paulo'
             APP_NAME: 'Pokedex'
