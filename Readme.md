@@ -20,7 +20,7 @@ O projeto foi dividido em duas partes. O backend, desenvolvido em Node.js, permi
 ## Images
 
 <div style="display:flex">
-    <img src="https://raw.githubusercontent.com/AndreTGama/solar_system_flutter/main/assets/images/img-app/page-1.png" alt="image project"/>
-    <img src="https://raw.githubusercontent.com/AndreTGama/solar_system_flutter/main/assets/images/img-app/page-2.png" alt="image project"/>
-    <img src="https://raw.githubusercontent.com/AndreTGama/solar_system_flutter/main/assets/images/img-app/page-3.png" alt="image project"/>
+    <img src="" alt="image project"/>
+    <img src="" alt="image project"/>
+    <img src="" alt="image project"/>
 </div>
