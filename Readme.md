@@ -25,4 +25,8 @@ O projeto foi dividido em duas partes. O backend, desenvolvido em Node.js, permi
     <img src="https://raw.githubusercontent.com/AndreTGama/pokedex-fullstack/main/imagens/Lista.png" alt="image project"/>
     <img src="https://raw.githubusercontent.com/AndreTGama/pokedex-fullstack/main/imagens/Pokemon.png" alt="image project"/>
     <img src="https://raw.githubusercontent.com/AndreTGama/pokedex-fullstack/main/imagens/Time.png" alt="image project"/>
+    <span>Essa última imagem está com o Dark mode ativo</span>
 </div>
+
+## Routes
+<li><a href="https://github.com/AndreTGama/pokedex-fullstack/blob/main/routes.postman_collection.json" target="_blank">Rotas</a></li>
